@@ -2,14 +2,9 @@ import { useState } from "react";
 import { useCart } from "../Context/CartContext";
 
 export const SingleProduct = ({ product }) => {
-  const {
-    itemsInCart,
-    setItemsInCart,
-    buttonText,
-    setButtonText,
-    buttonBg,
-    setButtonBg
-  } = useCart();
+  const { itemsInCart, setItemsInCart } = useCart();
+  const [buttonText, setButtonText] = useState("Add to cart");
+  const [buttonBg, setButtonBg] = useState(false);
 
   const addItemsToCart = (product) => {
     const itemExist = itemsInCart.find((item) => item.id === product.id);
@@ -25,11 +20,10 @@ export const SingleProduct = ({ product }) => {
           productInCart: true
         }
       ]);
-      setButtonText("Go to cart");
       setButtonBg(true);
+      setButtonText("Go to the cart");
     }
   };
-
   return (
     <div className="card" key={product.id}>
       <div className="card-img-top">
