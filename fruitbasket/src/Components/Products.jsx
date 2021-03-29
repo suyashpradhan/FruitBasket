@@ -8,7 +8,7 @@ export const Products = () => {
         <h1 className="main-title">All Products ({dataObj.length})</h1>
         <div className="card-group">
           {dataObj.map((product) => {
-            return <SingleProduct product={product} />;
+            return <SingleProduct key={product.id} product={product} />;
           })}
         </div>
       </main>
