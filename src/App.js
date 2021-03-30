@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Cart } from "./Components/Cart";
 import { Wishlist } from "./Components/Wishlist";
-import { Products } from "./Components/Products";
+import { ProductsGrid } from "./Components/ProductsGrid";
 
 import "./styles.css";
 
@@ -33,7 +33,7 @@ export default function App() {
         </nav>
       </header>
 
-      {route === "products" && <Products />}
+      {route === "products" && <ProductsGrid />}
       {route === "cart" && <Cart />}
       {route === "wishlist" && <Wishlist />}
     </>

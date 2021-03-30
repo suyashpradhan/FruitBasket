@@ -1,29 +1,12 @@
-import { useState } from "react";
 import { useCart } from "../Context/CartContext";
 
 export const SingleProduct = ({ product }) => {
-  const { itemsInCart, setItemsInCart } = useCart();
-  const [buttonText, setButtonText] = useState("Add to cart");
-  const [buttonBg, setButtonBg] = useState(false);
+  const { itemsInCart, addItemsToCart } = useCart();
 
-  const addItemsToCart = (product) => {
-    const itemExist = itemsInCart.find((item) => item.id === product.id);
-
-    if (itemExist) {
-      alert("Item Already in cart");
-    } else {
-      setItemsInCart([
-        ...itemsInCart,
-        {
-          ...product,
-          productQuantity: 1,
-          productInCart: true
-        }
-      ]);
-      setButtonBg(true);
-      setButtonText("Go to the cart");
-    }
+  const itemExist = (product) => {
+    return itemsInCart.find((item) => item.id === product.id);
   };
+
   return (
     <div className="card" key={product.id}>
       <div className="card-img-top">
@@ -34,15 +17,17 @@ export const SingleProduct = ({ product }) => {
         <h2 className="product-price">Rs {product.productPrice}</h2>
 
         <div className="card-button-row">
+          {itemExist(product) ? (
+            <button className="ternary">Go to cart</button>
+          ) : (
+            <button onClick={() => addItemsToCart(product)} className="primary">
+              Add to cart
+            </button>
+          )}
           <button
-            className={buttonBg ? "ternary" : "primary"}
-            onClick={() => {
-              addItemsToCart(product);
-            }}
+            className="secondary"
+            /* onClick={() => addItemsToWishlist(product)} */
           >
-            {buttonText}
-          </button>
-          <button className="secondary">
             <i className="far fa-heart icon"></i>
           </button>
         </div>
@@ -50,3 +35,19 @@ export const SingleProduct = ({ product }) => {
     </div>
   );
 };
+
+/** const addItemsToWishlist = (product) => {
+    const itemExist = itemsInWishlist.find((item) => item.id === product.id);
+
+    if (itemExist) {
+      alert("Item Already Wishlisted");
+    } else {
+      setItemsInWishlist([
+        ...itemsInWishlist,
+        {
+          ...product,
+          productInWishlist: true,
+        },
+      ]);
+    }
+  }; */

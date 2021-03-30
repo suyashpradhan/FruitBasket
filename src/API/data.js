@@ -6,7 +6,8 @@ export const dataObj = [
     productName: "Apples",
     productPrice: "300",
     productInCart: false,
-    productQuantity: 0
+    productIsWishlisted: false,
+    productQuantity: 0,
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ export const dataObj = [
     productName: "Oranges",
     productPrice: "150",
     productInCart: false,
-    productQuantity: 0
+    productIsWishlisted: false,
+    productQuantity: 0,
   },
   {
     id: 3,
@@ -24,7 +26,8 @@ export const dataObj = [
     productName: "Kiwi",
     productPrice: "500",
     productInCart: false,
-    productQuantity: 0
+    productIsWishlisted: false,
+    productQuantity: 0,
   },
   {
     id: 4,
@@ -33,7 +36,8 @@ export const dataObj = [
     productName: "Watermelon",
     productPrice: "100",
     productInCart: false,
-    productQuantity: 0
+    productIsWishlisted: false,
+    productQuantity: 0,
   },
   {
     id: 5,
@@ -42,6 +46,7 @@ export const dataObj = [
     productName: "Apricots",
     productPrice: "900",
     productInCart: false,
-    productQuantity: 0
-  }
+    productIsWishlisted: false,
+    productQuantity: 0,
+  },
 ];
